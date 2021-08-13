@@ -1,0 +1,11 @@
+.navbar {
+    background: #39A2DB;
+}
+
+.nav-item {
+    padding-left: 2em;
+}
+
+.nav-link {
+    color: black;
+}
