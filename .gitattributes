@@ -1,2 +1,6 @@
-# Auto detect text files and perform LF normalization
-* text=auto
+# explicitly designates which files are text files, which get CRLF converted to LF in the object database
+
+*.txt text
+*.html text
+*.css text
+*.js text
