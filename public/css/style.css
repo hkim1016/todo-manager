@@ -1,5 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=ABeeZee&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@300;400;500&display=swap');
+
+html {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    height: 100%;
+    width: 100%;
+}
 
 .navbar {
     background: #39A2DB;
@@ -13,8 +24,29 @@
     color: black;
 }
 
-.btn:hover {
+.nav-btn:hover {
     background-color: #64c3f7
+}
+
+#addBtn {
+    background-color: #37b1f4;
+}
+
+#addBtn:hover {
+    background-color: #0d9cea;
+}
+
+.columns {
+    width: 40%;
+}
+
+#example {
+    width: 60%;
+    height: 11rem;
+}
+
+#example:hover {
+    background-color: #eaeaea;
 }
 
 #contact li {
@@ -23,4 +55,29 @@
 
 #about, #contact li {
     font-family: ABeeZee, sans-serif;
+}
+
+.categories {
+    font-family: 'M PLUS 1p', sans-serif;
+    font-weight: 500;
+}
+
+#todo {
+    margin-left: 5%;
+    /* max-height: 200%; */
+    overflow: auto;
+}
+
+#done {
+    margin-right: 5%;
+}
+
+.card {
+    overflow: scroll;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card-text{
+    word-wrap: break-word;
 }
