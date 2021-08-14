@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=ABeeZee&display=swap');
+
 .navbar {
     background: #39A2DB;
 }
@@ -8,4 +11,16 @@
 
 .nav-link {
     color: black;
+}
+
+.btn:hover {
+    background-color: #64c3f7
+}
+
+#contact li {
+    list-style-type: none;
+}
+
+#about, #contact li {
+    font-family: ABeeZee, sans-serif;
 }
