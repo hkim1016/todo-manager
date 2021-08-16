@@ -8,27 +8,49 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form>
+                <form class="needs-validation" novalidate>
                     <div class="mb-3">
                         <label for="taskName" class="form-label">Name of Task</label>
-                        <input type="text" class="form-control" id="taskName" required>
+                        <input type="text" class="form-control" id="taskName" name="taskName" required>
+                        <div class="valid-feedback">
+                            Valid Input!
+                        </div>
                     </div>
 
                     <div class="mb-3">
-                        <label for="taskDesc" class="form-label">Task Summary</label>
-                        <textarea class="form-control" id="taskDesc" rows="2"></textarea>
+                        <label for="date" class="form-label">Due Date</label>
+                        <input type="date" class="form-control date" id="date" placeholder="mm/dd/yyyy" name="date" required>
+                        <div class="invalid-feedback">
+                            Invalid Date Input
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="taskSummary" class="form-label">Task Summary</label>
+                        <textarea class="form-control" id="taskSummary" rows="2" name="taskSummary" required></textarea>
+                        <div class="invalid-feedback">
+                            Invalid Date Input
+                        </div>
                     </div>
 
                     <div class="mb-3">
                         <label for="taskDesc" class="form-label">Task Description</label>
-                        <textarea class="form-control" id="taskDesc" rows="5"></textarea>
+                        <textarea class="form-control" id="taskDesc" rows="5" name="taskDesc" required></textarea>
+                        <div class="invalid-feedback">
+                            Invalid Date Input
+                        </div>
+                    </div>
+
+                    <div class="mb-3 d-flex justify-content-end">
+                        <button type="button" class="btn btn-secondary me-2" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary rounded-pill">Save</button>
                     </div>
                 </form>
             </div>
-            <div class="modal-footer">
+            <!-- <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
+                <button type="submit" class="btn btn-primary">Save changes</button>
+            </div> -->
         </div>
     </div>
 </div>
