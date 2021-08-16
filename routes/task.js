@@ -14,10 +14,23 @@ const Task = require('../models/Task');
  - delete: delete selected task
 */
 
-// Getting all tasks for the user
-router.get('/', (req, res) => {
+// Getting all tasks
+router.get('/json', (req, res) => {
+    Task.find({}, (err, tasks) => {
+        if(err) console.error(err);
 
+        res.json(tasks);
+    })
 });
+
+// Renders the task page with the tasks
+router.get('/', (req, res) => {
+    Task.find({}, (err, tasks) => {
+        if(err) console.error(err);
+
+        res.render('../views/user/tasks', {tasks: tasks});
+    })
+})
 
 // Creating a new task
 router.post('/', (req, res) => {
@@ -37,11 +50,11 @@ router.post('/', (req, res) => {
 
 // Updating a specific task
 router.put('/:id', (req, res) => {
-
+    
 });
 
-// Deleting a specific task
-router.delete('/:id', (req, res) => {
+// Renders the task page with the finished tasks
+router.delete('/', (req, res) => {
 
 });
 
