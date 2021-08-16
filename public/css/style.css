@@ -40,12 +40,13 @@ body {
     width: 40%;
 }
 
-#example {
+#cardBtn {
     width: 60%;
     height: 11rem;
+    margin-bottom: 2rem;
 }
 
-#example:hover {
+#cardBtn:hover .card {
     background-color: #eaeaea;
 }
 
