@@ -11,7 +11,7 @@ const taskSchema = new mongoose.Schema({
     },
     date: {
         type: Date,
-        required: true
+        // required: true
     },
     description: {
         type: String,
@@ -19,4 +19,4 @@ const taskSchema = new mongoose.Schema({
     }
 }, {collection: 'tasks'});
 
-moduel.exports = mongoose.model('Task', taskSchema);
+module.exports = mongoose.model('Task', taskSchema);
