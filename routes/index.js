@@ -23,6 +23,24 @@ router.get('/contact', function(req, res) {
 
 // renders the main page (logged in)
 router.get('/tasks', function(req, res) {
+    // const user = new User({
+    //     username: 'hankim',
+    //     email: 'hankim1077@gmail.com',
+    //     password: 'h'
+    // });
+
+    // user.save((err) => {
+    //     console.log(err);
+    // });
+
+    // const task = new Task({
+    //     taskName: 'asdfasdfasdf',
+    //     taskSummary: 'asdfasdf',
+    //     description: 'asdfasdf'
+    // });
+
+    // task.save((err) => console.error(err));
+
     res.render('../views/user/tasks');
 });
 
