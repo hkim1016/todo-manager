@@ -3,6 +3,9 @@ const app = express();
 
 const router = express.Router();
 
+const User = require('../models/User');
+const Task = require('../models/Task');
+
 // renders the homepage (not logged in)
 router.get('/', function(req, res) {
     res.render('../views/index');
