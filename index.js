@@ -13,9 +13,14 @@ const MONGO_DB = process.env.MONGO_DB || 'mongodb+srv://hkim1016:Han135Kim1077@t
 app.use(express.static(process.cwd() + '/public'));
 app.set('view engine', 'ejs'); 
 
+app.use((req, res, next) => {
+    console.log(req.method + " " + req.path + " - " + req.ip);
+    next();
+});
+
 app.use(methodOverride('_method'));
 
-mongoose.connect(MONGO_DB, {useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect(MONGO_DB, {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false});
 const db = mongoose.connection;
 db.on('error', (error) => console.error(error));
 db.once('open', () => console.log('Connected to Database'));
