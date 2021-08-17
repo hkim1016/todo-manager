@@ -3,6 +3,7 @@ require('dotenv').config()
 const chalk = require('chalk');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const methodOverride = require('method-override');
 const express = require('express');
 const app = express();
 
@@ -11,6 +12,8 @@ const MONGO_DB = process.env.MONGO_DB || 'mongodb+srv://hkim1016:Han135Kim1077@t
 
 app.use(express.static(process.cwd() + '/public'));
 app.set('view engine', 'ejs'); 
+
+app.use(methodOverride('_method'));
 
 mongoose.connect(MONGO_DB, {useNewUrlParser: true, useUnifiedTopology: true});
 const db = mongoose.connection;
