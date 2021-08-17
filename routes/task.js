@@ -77,8 +77,14 @@ router.put('/', async (req, res) => {
 });
 
 // Renders the task page with the finished tasks
-router.delete('/', (req, res) => {
+router.delete('/', async (req, res) => {
+    await Task.findByIdAndDelete(req.body.taskID, (err, docs) => {
+        if(err) console.error(err);
 
+        console.log('Deleted: ' + docs);
+    });
+
+    res.redirect('/tasks');
 });
 
 // async function renderTaskPage(res) {

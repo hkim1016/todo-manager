@@ -29,7 +29,7 @@
                         
                         <% if (!task.finished) { %>
 
-                            <%- include('./modals/unfinishedTask', {task: task}); %>
+                            <%- include('./modals/unfinishedTask', {task: task, moment: moment}); %>
 
                             <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#unfinishedTaskModal-<%= task._id %>" id="cardBtn">
                                 <div class="d-flex justify-content-center" id="card">
