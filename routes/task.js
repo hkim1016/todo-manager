@@ -24,16 +24,18 @@ router.get('/json', (req, res) => {
 });
 
 // Renders the task page with the tasks
-router.get('/', (req, res) => {
-    Task.find({}, (err, tasks) => {
-        if(err) console.error(err);
+// router.get('/', async (req, res) => {
+//     await Task.find({}, (err, tasks) => {
+//         if(err) console.error(err);
 
-        res.render('../views/user/tasks', {tasks: tasks});
-    })
-})
+//         // res.render('../views/user/tasks', {tasks: tasks});
+//         res.redirect('/tasks');
+//         // renderTaskPage(res);
+//     })
+// });
 
 // Creating a new task
-router.post('/', (req, res) => {
+router.post('/', async (req, res) => {
     const task = new Task({
         taskName: req.body.taskName,
         taskSummary: req.body.taskSummary,
@@ -41,21 +43,47 @@ router.post('/', (req, res) => {
         description: req.body.description
     });
 
-    task.save((err) => {
+    await task.save((err) => {
         if(err) console.error(err);
-
-        res.redirect('/tasks');
     });
+
+    res.redirect('/tasks');
 });
 
 // Updating a specific task
-router.put('/:id', (req, res) => {
+router.put('/', async (req, res) => {
+    // await Task.findOne({_id: req.body.taskID}, async (err, task) => {
+    //     if(err) console.error(err);
+
+    //     console.log('before: ' + task.finished);
+
+    //     if(req.body.taskFinished === 'on') {
+    //         task.finished = true;
+    //     }
+
+    //     console.log('after: ' + task.finished);
+    // });
+
+    // if(req.body.taskFinished === 'on') {
+        await Task.findByIdAndUpdate(req.body.taskID, {finished: true}, (err, docs) => {
+            if(err) console.error(err);
+
+            console.log('Update: ' + docs)
+        });
+    // }
     
+
+    res.redirect('/tasks');
 });
 
 // Renders the task page with the finished tasks
 router.delete('/', (req, res) => {
 
 });
+
+// async function renderTaskPage(res) {
+//     const tasks = await Task.find({});
+//     res.render('../views/user/tasks', {tasks: tasks});
+// }
 
 module.exports = router;
