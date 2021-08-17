@@ -23,9 +23,10 @@ router.get('/contact', (req, res) => {
 });
 
 // renders the main page (logged in)
-// router.get('/tasks', async (req, res) => {
-//     const tasks = await Task.find({});
-//     res.render('../views/user/tasks', {tasks: tasks});
-// });
+router.get('/tasks', async (req, res) => {
+    const tasks = await Task.find({});
+    res.render('../views/user/tasks', {tasks: tasks});
+    // res.render('../views/contact');
+});
 
 module.exports = router;
