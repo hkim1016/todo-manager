@@ -11,10 +11,22 @@
                 <div class="mb-3">
                     <p><%= task.description %></p>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+
+                <div class="d-flex bd-highlight">
+
+                    <form class="me-auto bd-highlight" action="/task?_method=DELETE" method="POST">
+                        <div class="mb-3 d-flex justify-content-start">
+                            <button type="submit" class="btn btn-danger rounded-pill">Delete Task</button>
+                        </div>
+
+                        <input type="hidden" name="taskID" value=<%= task._id %>>
+                    </form>
+
+                    <div class="mb-3 bd-highlight">
+                        <button type="button" class="btn btn-secondary me-2" data-bs-dismiss="modal">Close</button>
+                    </div>
+
+                </div>
             </div>
         </div>
     </div>

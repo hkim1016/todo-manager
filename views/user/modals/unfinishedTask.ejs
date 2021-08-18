@@ -8,18 +8,20 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                
                 <div class="mb-3 border border-dark p-4 pb-2">
                     <p><%= task.description %></p>
-                    <hr style="color:black;background-color:black;border:0;">
-                    <p>DUE DATE: <%= moment(task.date).format('L'); %></p>
+                    
+                    <% if (task.date) { %>
+                        <hr style="color:black;background-color:black;border:0;">
+                        <p>DUE DATE: <%= moment(task.date).format('L'); %></p>
+                    <% } %>
                 </div>
 
                 <div class="d-flex bd-highlight">
 
                     <form class="me-auto bd-highlight" action="/task?_method=DELETE" method="POST">
                         <div class="mb-3 d-flex justify-content-start">
-                            <button type="submit" class="btn btn-danger rounded-pill">Delete Task</button>
+                            <button type="submit" class="btn btn-danger rounded-pill" id="deleteTask">Delete Task</button>
                         </div>
 
                         <input type="hidden" name="taskID" value=<%= task._id %>>
@@ -33,8 +35,8 @@
     
                         <div class="mb-3 d-flex justify-content-end">
                             <!-- <button type="submit" class="btn btn-primary rounded me-auto bd-highlight" value="Send Request">Finish Task</button> -->
-                            <button type="button" class="btn btn-secondary me-2" data-bs-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary rounded-pill">Finish Task</button>
+                            <button type="submit" class="btn btn-primary rounded-pill me-2">Finish Task</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                         </div>
     
                         <input type="hidden" name="taskID" value=<%= task._id %>>

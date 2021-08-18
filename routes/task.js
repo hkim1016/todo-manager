@@ -52,26 +52,11 @@ router.post('/', async (req, res) => {
 
 // Updating a specific task
 router.put('/', async (req, res) => {
-    // await Task.findOne({_id: req.body.taskID}, async (err, task) => {
-    //     if(err) console.error(err);
+    await Task.findByIdAndUpdate(req.body.taskID, {finished: true}, (err, docs) => {
+        if(err) console.error(err);
 
-    //     console.log('before: ' + task.finished);
-
-    //     if(req.body.taskFinished === 'on') {
-    //         task.finished = true;
-    //     }
-
-    //     console.log('after: ' + task.finished);
-    // });
-
-    // if(req.body.taskFinished === 'on') {
-        await Task.findByIdAndUpdate(req.body.taskID, {finished: true}, (err, docs) => {
-            if(err) console.error(err);
-
-            console.log('Update: ' + docs)
-        });
-    // }
-    
+        console.log('Update: ' + docs)
+    });
 
     res.redirect('/tasks');
 });
@@ -83,7 +68,7 @@ router.delete('/', async (req, res) => {
 
         console.log('Deleted: ' + docs);
     });
-
+    
     res.redirect('/tasks');
 });
 
