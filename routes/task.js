@@ -37,6 +37,7 @@ router.get('/json', (req, res) => {
 // Creating a new task
 router.post('/', async (req, res) => {
     const task = new Task({
+        user: req.session.user._id,
         taskName: req.body.taskName,
         taskSummary: req.body.taskSummary,
         date: req.body.date,
