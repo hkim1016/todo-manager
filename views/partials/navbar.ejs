@@ -7,7 +7,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             
-            <% if (view==='homepage') { %>
+            <% if (user == null) { %>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0 justify-content-end fs-5">
                         <li class="nav-item">
@@ -17,14 +17,11 @@
                             <a class="nav-link px-sm-3" href="/about">About</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link px-sm-3" href="/tasks">Tasks</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link px-sm-3" href="/contact">Contact</a>
                         </li>
                         <li class="nav-item button">
                             <!-- <a class="nav-link" href="#">Sign Up</a> -->
-                            <button type="button" class="btn fs-5 nav-link px-sm-3 nav-btn" data-bs-toggle="modal" data-bs-target="#signupModal">
+                            <button type="button" class="btn fs-5 nav-link nav-btn" data-bs-toggle="modal" data-bs-target="#signupModal">
                                 Sign Up
                             </button>
                         </li>
@@ -40,21 +37,22 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0 justify-content-end fs-5">
                         <li class="nav-item">
-                            <a class="nav-link active mt-2" aria-current="page" href="/task">TODO'S</a>
+                            <a class="nav-link active" aria-current="page" href="/tasks">TODO'S</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link mt-2" href="/about">About</a>
+                            <a class="nav-link" href="/about">About</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link mt-2" href="/contact" style="display:flex;align-items:center;">Contact</a>
+                            <a class="nav-link" href="/contact" style="display:flex;align-items:center;">Contact</a>
                         </li>
                         <li class="nav-item dropdown me-4">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="/img/profile-silhouette.jpg" class="rounded-circle" width="44" height="44">
+                                <!-- <img src="/img/profile-silhouette.jpg" class="rounded-circle" width="44" height="44"> -->
+                                HAN KIM
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown" style="min-width:140px;">
                                 <li>
-                                    <a class="dropdown-item text-center" href="#">Logout</a>
+                                    <a class="dropdown-item text-center" href="/">Logout</a>
                                 </li>
                             </ul>
                         </li>
@@ -75,25 +73,25 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form>
+                    <form action="/user" method="POST">
                         <div class="mb-3">
                             <label for="firstName" class="form-label">First Name</label>
-                            <input type="text" class="form-control" id="firstName" required>
+                            <input type="text" class="form-control" id="firstName" name="firstName" required>
                         </div>
 
                         <div class="mb-3">
                             <label for="lastName" class="form-label">Last Name</label>
-                            <input type="text" class="form-control" id="lastName" required>
+                            <input type="text" class="form-control" id="lastName" name="lastName" required>
                         </div>
 
                         <div class="mb-3">
-                          <label for="email" class="form-label">Email address</label>
-                          <input type="email" class="form-control" id="email" aria-describedby="emailHelp" required>
-                        </div>
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" aria-describedby="emailHelp" name="email" required>
+                          </div>
 
                         <div class="mb-3">
                           <label for="password" class="form-label">Password</label>
-                          <input type="password" class="form-control" id="password" required>
+                          <input type="password" class="form-control" id="password" name="password" required>
                         </div>
                         
                         <button type="submit" class="btn btn-primary btn-lg w-100">Sign Up</button>
@@ -112,15 +110,15 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form>
+                    <form action="/user" method="GET" enctype="application/x-www-form-urlencoded">
                         <div class="mb-3">
-                          <label for="email" class="form-label">Email address</label>
-                          <input type="email" class="form-control" id="email" aria-describedby="emailHelp" required>
+                          <label for="email" class="form-label">Email</label>
+                          <input type="email" class="form-control" id="email" aria-describedby="emailHelp" name="email" required>
                         </div>
 
                         <div class="mb-3">
                           <label for="password" class="form-label">Password</label>
-                          <input type="password" class="form-control" id="password" required>
+                          <input type="password" class="form-control" id="password" name="password" required>
                         </div>
                         
                         <button type="submit" class="btn btn-primary btn-lg w-100">Login</button>
