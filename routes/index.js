@@ -12,13 +12,13 @@ const Task = require('../models/Task');
 router.get('/', (req, res) => {
     res.locals.user = null;
 
-    console.log(req.session);
+    // console.log(req.session);
 
     if(req.session) {
         req.session.destroy();
     }
 
-    console.log(req.session);
+    // console.log(req.session);
 
     res.render('../views/index');
 });
