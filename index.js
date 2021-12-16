@@ -12,7 +12,7 @@ const express = require('express');
 const app = express();
 
 const PORT = process.env.PORT || 8080;
-const MONGO_DB = process.env.MONGODB_URI || 'mongodb+srv://hkim1016:Han135Kim1077@todolist.nbirn.mongodb.net/todolistDB';
+const MONGO_DB = process.env.MONGODB_URI || 'mongodb://localhost:27017/todolisDB';
 
 app.use(express.static(process.cwd() + '/public'));
 app.set('view engine', 'ejs'); 
